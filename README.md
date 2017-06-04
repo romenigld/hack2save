@@ -1,25 +1,18 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # hack2save
+
+# Getting Started
+
+    docker-compose build
+    # for create database
+    docker-compose run hack2save rake db:create
+    docker-compose up
+
+# TEAM
+
+- Luis Fernando Pimenta
+
+
+
+
+
+
