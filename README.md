@@ -13,3 +13,4 @@
 
 
 - Wellington Perez
+- Velder Soares
