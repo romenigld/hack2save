@@ -1,33 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
-  timeout: 5000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
+  user: postgres
 
 development:
   <<: *default
   database: hack2save_equipe4_development
-  username: postgres
-  password:
-  host: db
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  host:     localhost
-  encoding: unicode
-  username: postgres
-  password:
-  template: template0
   database: hack2save_equipe4_test
 
 production:
   <<: *default
-  host:     localhost
-  encoding: unicode
-  username: postgres
-  password:
-  template: template0
   database: hack2save_equipe4_production
