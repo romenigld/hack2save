@@ -47,6 +47,7 @@ gem 'materialize-form'
 gem 'will_paginate'
 gem 'carrierwave'
 gem 'responders'
+gem 'mini_magick'
 
 
 group :development, :test do
