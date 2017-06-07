@@ -11,5 +11,13 @@
         <%= @user.profile.phone_number %><br/>
         <%= @user.profile.contact_email %><br/>
       </div>
+      <h4>Avatar vários tamanhos</h4>
+      Thumb:
+      <%= image_tag(@user.profile.avatar.thumb) if @user.profile.avatar %>
+      Medium:
+      <%= image_tag(@user.profile.avatar.medium) if @user.profile.avatar %>
+      Big:
+      <%= image_tag(@user.profile.avatar.big) if @user.profile.avatar %>
+      <hr />
   </div>
 </div>
