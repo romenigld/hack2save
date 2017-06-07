@@ -14,3 +14,4 @@
 
 - Wellington Perez
 - Velder Soares
+- Raimundo Junior Ribeiro de Amorim
