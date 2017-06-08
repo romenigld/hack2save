@@ -10,7 +10,7 @@
 # TEAM
 
 - Luis Fernando Pimenta
-
+- Felipe Nogueira de Souza
 - Romenig Lima Damasio
 - Wellington Perez
 - Velder Soares
