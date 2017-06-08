@@ -21,6 +21,16 @@ class JobsController < ApplicationController
   def edit
   end
 
+  def update
+    if @job.update_attributes(job_params)
+      flash[:notice] = 'Job updated with success'
+      redirect_to user_job_path(current_user, @job)
+    else
+      render action: :edit
+    end
+  end
+  
+
   def show
   end
 
