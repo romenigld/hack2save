@@ -1,3 +1,18 @@
+<% if @profile.errors.any? %>
+  <div id="errors_explanation"
+    <h2 class="center">
+      <%= pluralize(@profile.errors.count, "error") %> prohibited
+      this profile from being saved:
+    </h2>
+    <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @profile, url: user_profile_path do |f| %>
 <div class="input-field">
   <%= f.label :name %>  <br />
