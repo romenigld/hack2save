@@ -2,18 +2,25 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password:
-  host: postgres
 
 development:
   <<: *default
   database: hack2save_equipe4_development
+  username: postgres
+  password:
+  host: postgres
 
 test:
   <<: *default
   database: hack2save_equipe4_test
+  username: postgres
+  password:
+  host: postgres
 
 production:
   <<: *default
   database: hack2save_equipe4_production
+  host: localhost
+  user: postgres
+  password:
+  template: template0
