@@ -1,2 +1,13 @@
-h1 Jobs#show
-p Find me in app/views/jobs/show.html.slim
+.row
+  .col.s12.m12
+    .card
+      .card-content
+        span.card-title Job details
+        p 
+          b 
+            'Title: 
+          = @job.title
+        p 
+          b 
+            'Description: 
+          = @job.description
