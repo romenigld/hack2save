@@ -2,10 +2,12 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update, :show]  
   
   def index
+    
   end
 
   def new
     @job = current_user.jobs.build
+    authorize current_user.profile
   end
 
   def create
