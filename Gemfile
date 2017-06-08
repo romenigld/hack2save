@@ -35,7 +35,27 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
+gem 'awesome_print'
+gem 'slim-rails'
+gem 'simple_form'
+gem 'pundit'
+gem 'materialize-sass'
+gem 'material_icons'
+gem 'materialize-form'
+gem 'will_paginate'
+gem 'carrierwave'
+gem 'responders'
+gem 'mini_magick'
+
+
 group :development, :test do
+  gem 'ffaker'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
