@@ -54,4 +54,30 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+
+  # Include Factory Girl syntax to simplify calls to factories
+ config.include FactoryGirl::Syntax::Methods
+
+ # Configure DatabaseCleaner to reset data between tests
+ config.before(:suite) do
+   DatabaseCleaner.strategy = :transaction
+   DatabaseCleaner.clean_with :truncation
+ end
+
+ config.around(:each) do |example|
+   DatabaseCleaner.cleaning do
+     example.run
+   end
+ end
+
+ config.after(:each) do
+   DatabaseCleaner.clean
+ end
+
+ config.include Warden::Test::Helpers, type: :feature
+ config.after(type: :feature) { Warden.test_reset! }
+ config.use_transactional_fixtures = false
+ config.include Devise::Test::ControllerHelpers, type: :controller
+
 end
