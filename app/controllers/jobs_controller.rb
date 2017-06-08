@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update, :show]  
   
   def index
-    
+    @jobs = current_user.jobs
   end
 
   def new

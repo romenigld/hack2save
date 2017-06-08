@@ -1,16 +1,24 @@
 .row
+  .col.s12.m12
+    = link_to 'New job',new_user_job_path(current_user), class: 'btn'
+.row
   .col.s12.m8
     .card
       .card-content
-        span.card-title List Jobs
+        span.card-title 
+          'List jobs of the entity - 
+          = current_user.profile.name
 
         table.table
           thead
             tr
               th Title
               th Description
+              th Actions
           tbody
             - @jobs.each do |job|
               tr
                 td = job.title    
                 td = job.description
+                td
+                  = link_to raw('<i class="material-icons">search</i>'), user_job_path(current_user, job)
