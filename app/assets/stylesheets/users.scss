@@ -1,3 +1,45 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Users Show Page Styles */
+.user-show-avatar {
+  height: 128px;
+  width: 128px;
+}
+
+.job-title-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #2e6da4;
+  border-radius: 4px;
+  background-color: #337ab7;
+  color: white;
+  text-align: center;
+}
+
+.profile-block {
+  color: #fff;
+  h3 {
+    margin-top: 0;
+  }
+}
+.profile-description {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.contact-info {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* Users Index Page Styles */
+.user-index-avatar {
+  border-radius: 50%;
+}
+
+.white-bg {
+  background-color: #D5D5D3;
+}
+
+.white2-bg {
+  background-color: #EAEAEA;
+}

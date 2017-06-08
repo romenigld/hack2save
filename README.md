@@ -11,7 +11,7 @@
 
 - Luis Fernando Pimenta
 
-
+- Romenig Lima Damasio
 - Wellington Perez
 - Velder Soares
 - Raimundo Junior Ribeiro de Amorim
