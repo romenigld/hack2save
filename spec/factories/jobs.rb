@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :job do
-    user nil
-    title "MyString"
-    description "MyText"
+    user 
+    title {FFaker::Job.title}
+    description {FFaker::Lorem.paragraph}
   end
 end
