@@ -6,11 +6,12 @@ class JobsController < ApplicationController
   end
 
   def new
+    authorize current_user.profile  
     @job = current_user.jobs.build
-    authorize current_user.profile
   end
 
   def create
+    authorize current_user.profile
     @job = current_user.jobs.build(job_params)
     if @job.save
       flash[:notice] = 'Job created with success'
@@ -21,9 +22,11 @@ class JobsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
+    
     if @job.update_attributes(job_params)
       flash[:notice] = 'Job updated with success'
       redirect_to user_job_path(current_user, @job)
@@ -40,6 +43,7 @@ class JobsController < ApplicationController
 
   def set_job
     @job = Job.find(params[:id])
+    authorize @job
   end
 
   def job_params

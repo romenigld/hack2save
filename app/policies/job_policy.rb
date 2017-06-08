@@ -1,15 +1,12 @@
 class JobPolicy < ApplicationPolicy
   
-  def new?
-    user.profile.social_entity == :entity
-  end
-
-  def create?
-    user.profile.entity?
+  def update?
+    user == job.user
   end
 
   private 
-    def job
-      record
-    end
+
+  def job
+     record 
+  end
 end
