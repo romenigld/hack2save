@@ -19,7 +19,11 @@
             <% if user_signed_in? %>
               <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn' %></li>
               <li><%= link_to "Community", users_path %></li>
-              <li><%= link_to "Jobs", user_jobs_path(current_user) %></li>
+              <% if current_user.profile != nil %>
+                <% if current_user.profile.social_entity == 'entity'%>
+                  <li><%= link_to "Jobs", user_jobs_path(current_user) %></li>
+                <% end %>  
+              <% end %>
               <li><%= link_to "My Account", edit_user_registration_path %></li>
             <% else %>
               <li><%= link_to "Log In", new_user_session_path, class: 'waves-effect waves-light btn', method: :get %></li>

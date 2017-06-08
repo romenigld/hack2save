@@ -13,33 +13,33 @@
     .well
       h2.text-center The Community
       p Visit the community to meet other developers, entrepreneurs, and investors!
-    | = link_to "Visit the community", users_path, class: 'btn btn-default btn-lg btn-block' 
-
-.container-fluid
-  .row
-    .col.s12
-      div
-        h3.center-align RECENT JOB'S
-        h5.center-align Description section
-  .row
-    - @jobs.each do |job|
-      .col.s4
-        .card
-          .card-image.waves-effect.waves-block.waves-light
-            - if job.user.profile.avatar.url == nil
-              div.center-align
-                i.large.material-icons
-                 'done_all
-            - else 
-              img.activator src="#{job.user.profile.avatar}" /  
-          .card-content
-            span.card-title.activator.grey-text.text-darken-4
-              = job.title
-              i.material-icons.right more_vert
-            p
-              a href="#"  To apply
-          .card-reveal
-            span.card-title.grey-text.text-darken-4
-              = job.title
-              i.material-icons.right close
-            p = job.description
+      = link_to "Visit the community", users_path, class: 'btn btn-default btn-lg btn-block' 
+- else 
+  .container-fluid
+    .row
+      .col.s12
+        div
+          h3.center-align RECENT JOB'S
+          h5.center-align Description section
+    .row
+      - @jobs.each do |job|
+        .col.s4
+          .card
+            .card-image.waves-effect.waves-block.waves-light
+              - if job.user.profile.avatar.url == nil
+                div.center-align
+                  i.large.material-icons
+                  'done_all
+              - else 
+                img.activator src="#{job.user.profile.avatar}" /  
+            .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                = job.title
+                i.material-icons.right more_vert
+              p
+                a href="#"  To apply
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                = job.title
+                i.material-icons.right close
+              p = job.description
