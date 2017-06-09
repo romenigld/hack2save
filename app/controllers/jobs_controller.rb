@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:edit, :update, :show]  
+  before_action :set_job, only: [:edit, :update, :show, :destroy]  
   
   def index
     @jobs = current_user.jobs
@@ -37,6 +37,12 @@ class JobsController < ApplicationController
   
 
   def show
+  end
+
+  def destroy
+    @job.destroy
+    flash[:notice] = 'Job delete with success'
+    redirect_to user_jobs_path(current_user)
   end
 
   private 
