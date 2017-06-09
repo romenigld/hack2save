@@ -1,0 +1,28 @@
+nav
+  .nav-wrapper
+    .brand-logo
+      = link_to root_path, class: 'navbar-brand' do
+        |  Hack2Save - Team 4
+    ul.right.hide-on-med-and-down
+      - if user_signed_in?
+        .left
+          p
+            |  Signed in as 
+            = current_user.email
+        li
+          = link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn'
+        li
+          = link_to "Community", users_path
+        li
+          = link_to "Jobs", user_jobs_path(current_user)
+        li
+          = link_to "My Account", edit_user_registration_path
+      - else
+        |  <li class="
+        = "active" if current_page?("/users/sign_in")
+        | "> 
+        = link_to "Log In", new_user_session_path, class: 'waves-effect waves-light btn', method: :get
+        |  <li class="
+        = "active" if current_page?("/users/sign_up")
+        | "> 
+        = link_to "Sign up", new_user_registration_path, class: 'waves-effect waves-light btn', method: :get
