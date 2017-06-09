@@ -14,3 +14,15 @@
           b 
             'Description: 
           = @job.description
+        hr
+          h5 List of candidates of job  
+          table.table
+            thead
+              tr
+                th Name
+                th Profession
+            tbody
+              - @job.job_candidates.each do |j|
+                tr
+                  td = j.user.profile.name
+                  td = j.user.profile.job_title

@@ -1,8 +1,9 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update, :show, :destroy]  
-  
+  before_action :authenticate_user!
+
   def index
-    @jobs = current_user.jobs
+    @jobs = Job.paginate(page: params[:page]).order('created_at desc')
   end
 
   def new
@@ -37,6 +38,7 @@ class JobsController < ApplicationController
   
 
   def show
+    
   end
 
   def destroy

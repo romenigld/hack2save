@@ -1,0 +1,10 @@
+.row
+  .col.s12
+    .card
+      .card-content
+        span.card-title 
+          'Apply for job
+
+        = simple_form_for @job_candidate do |f|
+          = f.input :presentation_letter, wrapper_html: {class: 'col s8'}    
+          = f.button :submit
