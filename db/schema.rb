@@ -59,3 +59,5 @@ ActiveRecord::Schema.define(version: 20170608141242) do
   add_foreign_key "jobs", "users"
   add_foreign_key "profiles", "users"
 end
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
