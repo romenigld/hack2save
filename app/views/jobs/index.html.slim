@@ -33,9 +33,10 @@
                       p
                         - if current_user && current_user.id != job.user_id
                           a href="/job_candidates/#{job.id}/new"  To apply
-                    - if current_user && current_user.id == job.user_id
-                      .card-action   
-                        = link_to 'Details', user_job_path(current_user, job)
+                        
+                    .card-action   
+                      = link_to 'Details', user_job_path(current_user, job)
+                      - if current_user && current_user.id == job.user_id
                         = link_to 'Delete', user_job_path(current_user, job),  data: {confirm: 'You want to delete the job?'}, method: :delete
                     .card-reveal
                       span.card-title.grey-text.text-darken-4

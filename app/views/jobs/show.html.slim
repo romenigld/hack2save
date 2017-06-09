@@ -21,8 +21,16 @@
               tr
                 th Name
                 th Profession
+                th Status
+                
             tbody
               - @job.job_candidates.each do |j|
                 tr
                   td = j.user.profile.name
                   td = j.user.profile.job_title
+                  td = j.status
+                  td 
+                   - if current_user.id == j.job.user_id
+                      = link_to 'Accept', job_candidate_status_path(j,'accept'), method: :put
+                      | &nbsp;
+                      = link_to 'Recused', job_candidate_status_path(j,'recused'), method: :put
