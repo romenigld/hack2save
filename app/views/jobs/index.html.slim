@@ -21,4 +21,5 @@
                 td = job.title    
                 td = job.description
                 td
-                  = link_to raw('<i class="material-icons">search</i>'), user_job_path(current_user, job)
+                  = link_to raw('<i class="material-icons tiny">search</i>'), user_job_path(current_user, job)
+                  = link_to raw('<i class="material-icons red-text tiny">delete</i>'), user_job_path(current_user, job),  data: {confirm: 'You want to delete the job?'}, method: :delete
