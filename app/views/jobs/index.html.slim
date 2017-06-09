@@ -31,7 +31,8 @@
                         = job.title
                         i.material-icons.right more_vert
                       p
-                        a href="/job_candidates/#{job.id}/new"  To apply
+                        - if current_user && current_user.id != job.user_id
+                          a href="/job_candidates/#{job.id}/new"  To apply
                     - if current_user && current_user.id == job.user_id
                       .card-action   
                         = link_to 'Details', user_job_path(current_user, job)

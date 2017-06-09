@@ -25,10 +25,6 @@
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn' %></li>
               <li><%= link_to "Community", users_path %></li>
               <li><%= link_to "Jobs", user_jobs_path(current_user) %></li>
-              <% if current_user.profile != nil %>
-                <% if current_user.profile.social_entity == 'entity'%>
-                <% end %>
-              <% end %>
               <li><%= link_to "My Account", edit_user_registration_path %></li>
             <% else %>
               <li class="<%= "active" if current_page?("/users/sign_in") %>">
