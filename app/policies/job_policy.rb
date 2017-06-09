@@ -1,5 +1,10 @@
 class JobPolicy < ApplicationPolicy
   
+  
+  def create?
+    user.profile.social_entity == 'entity'
+  end
+
   def update?
     user == job.user
   end

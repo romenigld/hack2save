@@ -1,27 +1,52 @@
-.row
-  .col.s12.m12
-    = link_to 'New job',new_user_job_path(current_user), class: 'btn'
+- if current_user && current_user.profile.social_entity == 'entity'
+  .row
+    .col.s12.m12
+      = link_to 'New job',new_user_job_path(current_user), class: 'btn'
+
 .row
   .col.s12.m12
     .card
       .card-content
         span.card-title 
-          'List jobs of the entity - 
-          = current_user.profile.name
-        - if @jobs.count > 0    
-          table.table
-            thead
-              tr
-                th Title
-                th Description
-                th Actions
-            tbody
+          'List jobs
+          .container
+            .row
+              .col.s12
+                div
+                  h3.center-align RECENT JOB'S
+                  h5.center-align Description section
+            .row
               - @jobs.each do |job|
-                tr
-                  td = job.title    
-                  td = job.description
-                  td
-                    = link_to raw('<i class="material-icons tiny">search</i>'), user_job_path(current_user, job)
-                    = link_to raw('<i class="material-icons red-text tiny">delete</i>'), user_job_path(current_user, job),  data: {confirm: 'You want to delete the job?'}, method: :delete
-        - else 
-          h2 No jobs registered            
+                .col.s4
+                  .card
+                    .card-image.waves-effect.waves-block.waves-light
+                      - if job.user.profile.avatar.url == nil
+                        div.center-align
+                          i.large.material-icons
+                          'done_all
+                      - else
+                        img.activator src="#{job.user.profile.avatar}" /
+                    .card-content
+                      span.card-title.activator.grey-text.text-darken-4
+                        = job.title
+                        i.material-icons.right more_vert
+                      p
+                        - if current_user && current_user.id != job.user_id
+                          a href="/job_candidates/#{job.id}/new"  To apply
+                    - if current_user && current_user.id == job.user_id
+                      .card-action   
+                        = link_to 'Details', user_job_path(current_user, job)
+                        = link_to 'Delete', user_job_path(current_user, job),  data: {confirm: 'You want to delete the job?'}, method: :delete
+                    .card-reveal
+                      span.card-title.grey-text.text-darken-4
+                        = job.title
+                        i.material-icons.right close
+                      p = job.description
+
+            .row
+              .col.s12
+                = will_paginate @jobs
+                
+              
+                            
+              

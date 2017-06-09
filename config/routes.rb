@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   resources :users do
-    resources :jobs
+    resources :jobs 
     resource :profile
   end
+
+  
+  get 'job_candidates/:job_id/new', to: 'job_candidates#new'
+  post 'job_candidates/:job_id', to: 'job_candidates#create', as: 'job_candidates'
 
   root 'page#index'
 
