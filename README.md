@@ -1,12 +1,13 @@
 # hack2save
 
 # Getting Started
-
+    
     docker-compose build
-    # for create database
-    docker-compose run hack2save rake db:create
+    # start dockers
     docker-compose up
-
+    # for create/migrate/drop database
+    docker-compose run hack2save bundle exec rake db:create
+    
 # TEAM
 
 - Luis Fernando Pimenta
