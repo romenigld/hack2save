@@ -55,6 +55,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+
   # Include Factory Girl syntax to simplify calls to factories
  config.include FactoryGirl::Syntax::Methods
 
@@ -78,4 +79,5 @@ RSpec.configure do |config|
  config.after(type: :feature) { Warden.test_reset! }
  config.use_transactional_fixtures = false
  config.include Devise::Test::ControllerHelpers, type: :controller
+
 end

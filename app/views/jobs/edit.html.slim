@@ -1,0 +1,11 @@
+.row
+  .col.s12.m12
+    = link_to 'List jobs',user_jobs_path(current_user), class: 'btn'
+.row
+  .col.s12.m12
+    .card
+      .card-content
+        span.card-title 
+          'Edit Job
+          = @job.title
+        = render 'jobs/form'

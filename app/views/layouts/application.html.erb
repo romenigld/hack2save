@@ -3,12 +3,34 @@
   <head>
     <title>Hack2saveEquipe4</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav>
+      <div class='nav-wrapper'>
+        <div class="brand-logo">
+          <%= link_to root_path, class: 'navbar-brand' do %>
+            Hack2Save
+          <% end %>
+        </div>
+          <ul class="right hide-on-med-and-down">
+            <% if user_signed_in? %>
+              <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn' %></li>
+              <li><%= link_to "Community", users_path %></li>
+              <% if current_user.profile != nil %>
+                <% if current_user.profile.social_entity == 'entity'%>
+                  <li><%= link_to "Jobs", user_jobs_path(current_user) %></li>
+                <% end %>  
+              <% end %>
+              <li><%= link_to "My Account", edit_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to "Log In", new_user_session_path, class: 'waves-effect waves-light btn', method: :get %></li>
+            <% end %>
+          </ul>
+      </div><!-- /.navbar-collapse -->
+    </nav>
     <% flash.each do |key, value| %>
     <%= content_tag :div, value, class: "alert alert-#{key}" %>
     <% end %>

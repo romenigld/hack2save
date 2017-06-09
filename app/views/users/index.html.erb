@@ -1,21 +1,32 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <h1>Dev Match Community</h1>
-    <p>Welcome to the Dev Match community. Users must fill out a profile in order to be visible in the community.</p>
-    <ul class="list-unstyled">
+  <div class="col s8 offset-s2">
+    <h1 class="center">Hack2Save</h1>
+    <p class="center">Welcome to the Hack2Save community. Users must fill out a profile in order to be visible in the community.</p>
+    <ul class="collection">
       <% @users.each do |user| %>
         <% if user.profile %>
         <li>
-          <div class="well row <%= cycle('white-bg', '') %>">
+          <div class="row <%= cycle('white-bg', 'white2-bg') %>"><br />
+
+            <div class="col s4 center">
+              <% if user.profile.avatar %>
+                <%= link_to user do %>
+                  <%= image_tag(user.profile.avatar.medium, class: 'user-index-avatar')%>
+                <% end %>
+              <%end %>
+            </div>
 
             <div>
               <%= link_to user do %>
-                <h2><%= user.profile.name %> <%= user.profile.last_name %></h2>
+                <h3><%= user.profile.name %> <%= user.profile.last_name %></h2>
               <% end %>
               <p>
                 <%= user.profile.job_title %>
               </p>
+              <br />
             </div>
+            <br />
+
           </div>
         </li>
         <% end %>
