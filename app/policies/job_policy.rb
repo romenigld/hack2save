@@ -4,7 +4,7 @@ class JobPolicy < ApplicationPolicy
     user == job.user
   end
 
-  def destroy
+  def destroy?
     user == job.user
   end
 

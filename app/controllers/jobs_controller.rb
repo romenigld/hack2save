@@ -41,6 +41,8 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
+    flash[:notice] = 'Job delete with success'
+    redirect_to user_jobs_path(current_user)
   end
 
   private 

@@ -2,24 +2,26 @@
   .col.s12.m12
     = link_to 'New job',new_user_job_path(current_user), class: 'btn'
 .row
-  .col.s12.m8
+  .col.s12.m12
     .card
       .card-content
         span.card-title 
           'List jobs of the entity - 
           = current_user.profile.name
-
-        table.table
-          thead
-            tr
-              th Title
-              th Description
-              th Actions
-          tbody
-            - @jobs.each do |job|
+        - if @jobs.count > 0    
+          table.table
+            thead
               tr
-                td = job.title    
-                td = job.description
-                td
-                  = link_to raw('<i class="material-icons tiny">search</i>'), user_job_path(current_user, job)
-                  = link_to raw('<i class="material-icons red-text tiny">delete</i>'), user_job_path(current_user, job),  data: {confirm: 'You want to delete the job?'}, method: :delete
+                th Title
+                th Description
+                th Actions
+            tbody
+              - @jobs.each do |job|
+                tr
+                  td = job.title    
+                  td = job.description
+                  td
+                    = link_to raw('<i class="material-icons tiny">search</i>'), user_job_path(current_user, job)
+                    = link_to raw('<i class="material-icons red-text tiny">delete</i>'), user_job_path(current_user, job),  data: {confirm: 'You want to delete the job?'}, method: :delete
+        - else 
+          h2 No jobs registered            
