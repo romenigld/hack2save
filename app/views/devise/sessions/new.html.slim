@@ -1,0 +1,31 @@
+#login-page class="row"
+  div class="col s12 z-depth-4 card-panel"
+    = form_for(resource, as: resource_name, url: session_path(resource_name), class: "login-form") do |f|
+      .row
+        div class="input-field col s12 center"
+          = image_tag("logo.png", class: "circle responsive-img valign profile-image-login")
+          p class="center login-form-text" #Hack2Save
+      div class="row margin"
+        div class="input-field col s12"
+          .prefix
+            == material_icon.perm_identity.md_36
+          = f.label :email, class: "center-align"
+          = f.email_field :email, autofocus: true
+
+      div class="row margin"
+        div class="input-field col s12"
+          .prefix
+            == material_icon.lock_outline.md_36
+          = f.label :password
+          = f.password_field :password, autocomplete: "off"
+
+      - if devise_mapping.rememberable?
+        .row
+          div class="input-field col s12 m12 l12  login-text"
+            = f.check_box :remember_me
+            = f.label :remember_me
+      .row
+        div class="input-field col s12"
+          = f.submit "Log in", class: "btn waves-effect waves-light col s12"
+      .row
+        = render "devise/shared/links"
