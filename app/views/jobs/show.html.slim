@@ -1,0 +1,16 @@
+.row
+  .col.s12.m12
+    = link_to 'List jobs',user_jobs_path(current_user), class: 'btn'
+.row
+  .col.s12.m12
+    .card
+      .card-content
+        span.card-title Job details
+        p 
+          b 
+            'Title: 
+          = @job.title
+        p 
+          b 
+            'Description: 
+          = @job.description
