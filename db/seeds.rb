@@ -1,5 +1,5 @@
-# ["romenigld", "lfpimenta", "wellingtonp", "velders", "raimundojra", "fulano", "sicrano"].each do |name|
-#   unless User.exists?(name: name)
-#     User.create!(email: "#{name}@hack2save.com", password: "password")
-#   end
-# end
+["romenigld", "lfpimenta", "wellingtonp", "velders", "raimundojra", "team4"].each do |name|
+  unless User.exists?(email: '#{name}@hack2save.com')
+    User.create!(email: "#{name}@hack2save.com", password: "password")
+  end
+end
